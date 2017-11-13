@@ -19,6 +19,6 @@ describe('getRandomUsers', function() {
         it('should empty getRandomUsers() bee == false', () => {
             expect(getRandomUsers(users).length).equal(users.slice(Math.round(users.length / 2), users.length).length);
         });
-      }
+    }
     
 });

@@ -42,8 +42,6 @@ test(getAdultUsers()).defined([]);
 
 //3
 const users = [{age: 15}, {age: 14}, {age: 28}, {age: 18}, {age: 45}, {age: 68}, {age: 38}, {age: 22}, {age: 14}];
-const testMathRandom  = () => Math.random();
-
 const getRandomUsers = (users) => {
     const numb = Math.random();
     console.log('numb',numb);
@@ -63,12 +61,26 @@ const getRandomUsers = (users) => {
     return users.slice(middleUser, length);
    
   };
-  if(testMathRandom > 0.5){
+
+  const originRandom = Math.random;
+  Math.random = () => 0.8;
+
+  if(Math.random() > 0.5){
     test(getRandomUsers(users).length).equal(users.slice(0, Math.round(users.length / 2)).length);
-  } else{
+  };
+  Math.random = originRandom;  
+
+
+  const originRandomtwo = Math.random;
+  Math.random = () => 0.3;
+  if(Math.random() < 0.5){
     test(getRandomUsers(users).length).equal(users.slice(Math.round(users.length / 2), users.length).length);
   }
-  
+  Math.random = originRandomtwo;  
   test(getRandomUsers()).defined(false);
 
-  //Но как понимаю не совсем верно - как можно учесть рандомный ответ Math.random() в самой функции getRandomUsers?
+ 
+//2
+const originRandom = Math.random;
+Math.random = () => 0.8;
+Math.random = originRandom;  
