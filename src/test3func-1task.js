@@ -77,6 +77,7 @@ const getRandomUsers = (users) => {
     test(getRandomUsers(users).length).equal(users.slice(Math.round(users.length / 2), users.length).length);
   }
   Math.random = originRandomtwo;  
+  
   test(getRandomUsers()).defined(false);
 
  
