@@ -3,7 +3,7 @@ import { Person } from './tools';
 import { NAME } from'./tools';
 
 const { assert, expect } = chai;
-//chai.should();
+chai.should();
 
 describe('Person',()=>{
     let person;

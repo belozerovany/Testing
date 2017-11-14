@@ -11,14 +11,19 @@ describe('getRandomUsers', function() {
     it('should empty getRandomUsers() bee == false', () => {
        expect(getRandomUsers()).to.equal(false);
     });
-    if( test > 0.5){
-        it(' getRandomUsers() Math.random >0.5  you see', () => {
-            expect(getRandomUsers(users).length).to.equal(users.slice(0, Math.round(users.length / 2)).length);
-         });
-      } else{
-        it('should empty getRandomUsers() bee == false', () => {
-            expect(getRandomUsers(users).length).equal(users.slice(Math.round(users.length / 2), users.length).length);
-        });
-    }
+
+    it(' getRandomUsers() Math.random >0.5  you see', () => {
+        const originRandom = Math.random;
+        Math.random = () => 0.8;
+        expect(getRandomUsers(users).length).to.equal(5);
+        Math.random = originRandom; 
+    });
+
+    it(' getRandomUsers() Math.random < 0.5  you see', () => {
+        const originRandom = Math.random;
+        Math.random = () => 0.3;
+        expect(getRandomUsers(users).length).to.equal(4);
+        Math.random = originRandom; 
+    });
     
 });

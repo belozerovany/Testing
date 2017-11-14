@@ -1,9 +1,9 @@
 
 
-import chai from 'chai'; 
+import chai from 'chai'; //бибилтотека -импотрируем обьект с перечнем методов
 import { getAdultUsers } from './tools';
 
-const { assert, expect } = chai;
+const { assert, expect } = chai;//диструктуризацией вытягиваем нужные нам методы и используем подход BDD
 chai.should();
 
 const users = [{age: 15}, {age: 14}, {age: 28}, {age: 18}, {age: 45}, {age: 68}, {age: 38}, {age: 22}, {age: 14}];
